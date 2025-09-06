@@ -11,8 +11,10 @@
     ?>
     <div class="tour-card">
       <a href="<?php the_permalink(); ?>">
-        <?php if ($anh_tour): ?>
+        <?php if ($anh_tour && isset($anh_tour['url'])): ?>
           <img src="<?php echo esc_url($anh_tour['url']); ?>" alt="<?php the_title(); ?>">
+        <?php else: ?>
+          <img src="link-anh-default.jpg" alt="No Image">
         <?php endif; ?>
       </a>
       <h3><?php the_title(); ?></h3>
@@ -22,7 +24,9 @@
       <p>Giá tour: <?php echo number_format($gia_tour, 0, '', ','); ?> đồng</p>
       <a href="<?php the_permalink(); ?>">XEM CHI TIẾT</a>
     </div>
-    <?php endwhile; endif; ?>
+    <?php endwhile; else: ?>
+      <p>Không có tour nào được tìm thấy.</p>
+    <?php endif; ?>
   </div>
 </div>
 <?php get_footer(); ?>

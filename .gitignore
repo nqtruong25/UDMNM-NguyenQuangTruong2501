@@ -1,10 +1,10 @@
 # Ignore uploads (media files)
-wp-content/uploads/
+uploads/
 
 # Ignore cache, backup
-wp-content/cache/
-wp-content/backups/
-wp-content/upgrade/
+cache/
+backups/
+upgrade/
 
 # Ignore common system files
 *.log
