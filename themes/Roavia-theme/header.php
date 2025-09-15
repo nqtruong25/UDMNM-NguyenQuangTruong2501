@@ -43,15 +43,12 @@
 </header>
 
 <!-- Hero Section -->
-<section class="hero-section" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/halong.png');">
+
   <div class="hero-overlay">
     <div class="hero-content">
-      <h1>Tự do khám phá</h1>
+     
       <form class="search-form" method="get" action="<?php echo esc_url(home_url('/')); ?>">
-        <input type="text" name="s" placeholder="Nhập địa điểm muốn tìm.." />
-        <button type="submit"><i class="fa fa-search"></i></button>
-      </form>
-      <p>Khám phá và đặt các hoạt động du lịch đặc sắc với giá ưu đãi</p>
+        
     </div>
   </div>
 </section>
