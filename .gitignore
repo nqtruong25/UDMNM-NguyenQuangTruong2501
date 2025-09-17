@@ -1,14 +1,24 @@
-# Ignore uploads (media files)
-uploads/
+# ===============================
+# Ignore everything
+# ===============================
+*
 
-# Ignore cache, backup
-cache/
-backups/
-upgrade/
+# ===============================
+# But keep these folders
+# ===============================
+!themes/
+!plugins/
 
-# Ignore common system files
-*.log
-.DS_Store
-Thumbs.db
+# ===============================
+# Inside themes, ignore system files
+# ===============================
+themes/**/.DS_Store
+themes/**/Thumbs.db
+themes/**/*.log
 
-langguges/
+# ===============================
+# Inside plugins, ignore system files
+# ===============================
+plugins/**/.DS_Store
+plugins/**/Thumbs.db
+plugins/**/*.log
