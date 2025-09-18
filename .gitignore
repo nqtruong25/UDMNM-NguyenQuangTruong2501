@@ -35,7 +35,6 @@ vendor/
 # ========================
 # WordPress specific
 # ========================
-wp-content/uploads/      # Không push thư mục uploads (ảnh, media)
 wp-content/cache/
 wp-content/upgrade/
 wp-content/backups/
