@@ -1,24 +1,40 @@
-# ===============================
-# Ignore everything
-# ===============================
-*
+# ========================
+# System files
+# ========================
+.DS_Store
+Thumbs.db
+*.log
 
-# ===============================
-# But keep these folders
-# ===============================
-!themes/
-!plugins/
+# ========================
+# IDE / Editor
+# ========================
+.vscode/
+.idea/
+*.iml
 
-# ===============================
-# Inside themes, ignore system files
-# ===============================
-themes/**/.DS_Store
-themes/**/Thumbs.db
-themes/**/*.log
+# ========================
+# OS generated files
+# ========================
+ehthumbs.db
+desktop.ini
 
-# ===============================
-# Inside plugins, ignore system files
-# ===============================
-plugins/**/.DS_Store
-plugins/**/Thumbs.db
-plugins/**/*.log
+# ========================
+# Backup / Cache
+# ========================
+cache/
+backups/
+*.bak
+*.tmp
+
+# ========================
+# Node / Composer vendor (nếu có dùng)
+# ========================
+node_modules/
+vendor/
+
+# ========================
+# PHP / WordPress tự sinh (tùy chọn, bạn có thể xóa nếu muốn push luôn)
+# ========================
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backups/
