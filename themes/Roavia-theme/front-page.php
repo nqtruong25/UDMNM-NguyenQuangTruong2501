@@ -72,9 +72,6 @@ $group = get_field('logo');
   endif;
   ?>
 </section>
-
-
-
 <section class="home-tour-highlight">
   <div class="home-tour-bg">
     <img src="<?php echo get_template_directory_uri(); ?>/assets/anh2.png" alt="Background" />
@@ -87,22 +84,104 @@ $group = get_field('logo');
   </div>
 </section>
 
+<?php
+/**
+ * Template Name: Front Page
+ */
 
+?>
 
-<section class="welcome-section">
-  <div class="welcome-inner">
-    <div class="welcome-img">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/anh1.png" alt="Welcome Tourist Travel">
-    </div>
-    <div class="welcome-content">
-      <h3>Chào mừng bạn đã ghé thăm Tourist Travel</h3>
-      <p>Hãy đăng ký đăng tin với chúng tôi để tìm kiếm khách hàng nhanh hơn.</p>
-    </div>
-    <div class="welcome-btn">
-      <a href="#" class="welcome-register-btn">Đăng ký ngay</a>
-    </div>
+<div class="section-header">
+  <div class="title-left">
+    <span class="subtitle">News & Blogs</span>
+    <h2 class="main-title">Tin tiêu điểm</h2>
   </div>
-</section>
+  <a href="#" class="btn-more">Xem thêm →</a>
+</div>
+
+
+<?php
+// Query 4 bài viết thuộc category "tin-tieu-diem"
+$args = array(
+    'post_type'      => 'post',
+    'posts_per_page' => 4,
+    'tax_query'      => array(
+        array(
+            'taxonomy' => 'category',
+            'field'    => 'slug',
+            'terms'    => 'tin-tieu-diem'
+        )
+    )
+);
+$query = new WP_Query($args);
+
+if ($query->have_posts()) : ?>
+    <!-- Slider Wrapper -->
+    <div class="tin-tieu-diem-slider swiper">
+        <div class="swiper-wrapper">
+            <?php while ($query->have_posts()) : $query->the_post(); ?>
+                <div class="swiper-slide">
+                    <div class="slider-post-item">
+                        <a href="<?php the_permalink(); ?>">
+                            <?php if (has_post_thumbnail()) : ?>
+                                <div class="post-thumb">
+                                    <?php the_post_thumbnail('large'); ?>
+                                </div>
+                            <?php endif; ?>
+                            <div class="post-title">
+                                <?php the_title(); ?>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            <?php endwhile; ?>
+        </div>
+
+        <!-- Nút điều hướng -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+<?php endif;
+wp_reset_postdata();
+?>
+
+
+
+
+
+<?php
+// Lấy bài viết ID = 190
+$args = array(
+    'p' => 190,
+    'post_type' => 'post'
+);
+$query = new WP_Query($args);
+
+if ($query->have_posts()) :
+    while ($query->have_posts()) : $query->the_post(); ?>
+    
+    <section class="tourist-info-section">
+        <div class="tourist-info-container">
+            <div class="tourist-info-image">
+                <?php the_post_thumbnail('large'); ?>
+            </div>
+            <div class="tourist-info-content">
+                <h2><?php the_title(); ?></h2>
+                <div class="tourist-text"><?php the_content(); ?></div>
+            </div>
+            <div class="tourist-info-button">
+                <a href="#" class="btn-register">Đăng ký ngay</a>
+            </div>
+        </div>
+    </section>
+
+    <?php endwhile;
+    wp_reset_postdata();
+endif;
+?>
+
+
 
 <!-- Footer chỉ xuất hiện ở trang chủ -->
 <?php
