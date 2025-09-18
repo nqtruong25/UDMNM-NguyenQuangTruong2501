@@ -27,14 +27,15 @@ backups/
 *.tmp
 
 # ========================
-# Node / Composer vendor (nếu có dùng)
+# Node / Composer vendor (nếu có)
 # ========================
 node_modules/
 vendor/
 
 # ========================
-# PHP / WordPress tự sinh (tùy chọn, bạn có thể xóa nếu muốn push luôn)
+# WordPress specific
 # ========================
+wp-content/uploads/      # Không push thư mục uploads (ảnh, media)
 wp-content/cache/
 wp-content/upgrade/
 wp-content/backups/
