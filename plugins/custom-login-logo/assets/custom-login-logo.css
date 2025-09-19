@@ -1,0 +1,48 @@
+/* Nền trang đăng nhập */
+body.login {
+    background: #f1f1f1;
+}
+
+/* Hộp đăng nhập */
+body.login #login {
+    width: 360px;
+    padding: 40px 20px;
+    margin: 5% auto;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Logo */
+#login h1 a {
+    height: 100px;
+    width: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+}
+
+/* Nút đăng nhập */
+body.login #loginform .button-primary {
+    background: #ff6600;
+    border: none;
+    border-radius: 6px;
+    text-shadow: none;
+    box-shadow: none;
+    font-weight: bold;
+}
+body.login #loginform .button-primary:hover {
+    background: #e55a00;
+}
+
+/* Link dưới form */
+body.login #nav a,
+body.login #backtoblog a {
+    color: #ff6600 !important;
+    text-decoration: none;
+}
+body.login #nav a:hover,
+body.login #backtoblog a:hover {
+    text-decoration: underline;
+}

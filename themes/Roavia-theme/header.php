@@ -24,6 +24,8 @@
       ?>
     </div>
 
+    
+
     <!-- Menu -->
     <nav class="main-nav">
       <?php
@@ -34,7 +36,8 @@
         ));
       ?>
     </nav>
-
+<!-- Nút menu mobile -->
+    <div class="menu-toggle"><i class="fas fa-bars"></i></div>
     <!-- Hotline -->
     <div class="hotline">
       <a href="tel:0284455xxxx">0376800241</a>
@@ -42,13 +45,22 @@
   </div>
 </header>
 
-<!-- Hero Section -->
 
-  <div class="hero-overlay">
-    <div class="hero-content">
-     
-      <form class="search-form" method="get" action="<?php echo esc_url(home_url('/')); ?>">
-        
-    </div>
-  </div>
-</section>
+
+<?php wp_footer(); ?>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.querySelector(".menu-toggle");
+  const nav = document.querySelector(".main-nav");
+
+  if (toggle) {
+    toggle.addEventListener("click", function () {
+      nav.classList.toggle("active");
+    });
+  }
+});
+
+</script>
+</body>
+</html>

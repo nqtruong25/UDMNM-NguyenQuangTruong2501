@@ -1,0 +1,84 @@
+.support-box {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 260px;
+    background: #fff8e1;
+    border: 2px solid #70ffe5;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    font-family: Arial, sans-serif;
+    z-index: 9999;
+    display: none;
+}
+
+.support-box-header {
+    background: #70ffe5;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.support-box-close {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.support-box-item {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.support-box-item:last-child {
+    border-bottom: none;
+}
+
+.support-box-item a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.support-box-item a span {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+.support-box-item .sub-text {
+    font-size: 12px;
+    color: #777;
+}
+
+.support-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: #28ddea;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 10000;
+}
+/* Icon Zalo */
+.zalo-icon {
+    height: 22px;
+    width: 22px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}

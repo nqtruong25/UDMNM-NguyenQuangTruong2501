@@ -1,8 +1,9 @@
 # ========================
-# System files
+# System files (Windows, Mac, logs)
 # ========================
 .DS_Store
 Thumbs.db
+desktop.ini
 *.log
 
 # ========================
@@ -16,7 +17,6 @@ Thumbs.db
 # OS generated files
 # ========================
 ehthumbs.db
-desktop.ini
 
 # ========================
 # Backup / Cache
@@ -27,7 +27,7 @@ backups/
 *.tmp
 
 # ========================
-# Node / Composer vendor (nếu có)
+# Node / Composer vendor
 # ========================
 node_modules/
 vendor/
@@ -35,6 +35,12 @@ vendor/
 # ========================
 # WordPress specific
 # ========================
+
+# Bỏ qua toàn bộ thư mục uploads (media, ảnh…)
+uploads/
+wp-content/uploads/
+
+# Bỏ qua cache, backup, upgrade
 wp-content/cache/
 wp-content/upgrade/
 wp-content/backups/

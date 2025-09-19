@@ -1536,89 +1536,471 @@ Header overlay
 
 
 /* css trang du lịch ngoài nước */
-/* Khung từng bài */
-.tour-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 40px;
-  margin-bottom: 70px;
+/* Container chính */
+.du-lich-ngoai-nuoc {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
 }
 
-/* Ảnh bài viết */
-.tour-thumb {
-  flex: 1;
-}
-.tour-thumb img {
-  width: 100%;
-  height: 350px;
-  object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-  transition: transform 0.4s ease;
-}
-.tour-thumb img:hover {
-  transform: scale(1.04);
-}
-
-/* Nội dung bài viết */
-.tour-content {
-  flex: 1;
-  padding: 10px 0;
-}
-.tour-title {
-  font-size: 30px;
-  font-weight: 800;
-  margin-bottom: 16px;
-  line-height: 1.3;
-}
-.tour-title a {
-  color: #c62828;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-.tour-title a:hover {
-  color: #000;
-}
-.tour-meta {
-  font-size: 14px;
-  color: #777;
-  margin-bottom: 16px;
-  font-style: italic;
-}
-
-/* Nội dung đầy đủ */
-.tour-full-content {
-  font-size: 17px;
-  line-height: 1.8;
+/* Tiêu đề trang */
+.du-lich-ngoai-nuoc .page-title,
+.site-content h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 40px;
   color: #333;
 }
-.tour-full-content p {
-  margin-bottom: 18px;
-}
-.tour-full-content img {
-  max-width: 100%;
-  border-radius: 12px;
-  margin: 20px 0;
-  display: block;
-}
-.tour-full-content h2,
-.tour-full-content h3 {
-  margin: 24px 0 14px;
-  font-weight: 700;
-  color: #222;
+
+/* Nội dung mô tả */
+.du-lich-ngoai-nuoc .page-content {
+  text-align: justify;
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 50px;
+  color: #555;
 }
 
-/* Responsive cho tablet & mobile */
-@media (max-width: 992px) {
+/* Vùng custom section chứa ảnh + text */
+.custom-section {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+/* Item bài viết + ACF ảnh + text */
+.tour-item {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.tour-item.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+/* Hình ảnh */
+.tour-item img,
+.tour-thumb img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.tour-item img:hover,
+.tour-thumb img:hover {
+  transform: scale(1.03);
+}
+
+/* Nội dung bài */
+.tour-content {
+  flex: 1;
+}
+
+.tour-title {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.tour-title a {
+  text-decoration: none;
+  color: #0073aa;
+  transition: color 0.3s ease;
+}
+
+.tour-title a:hover {
+  color: #005580;
+}
+
+.tour-meta {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 15px;
+}
+
+.tour-full-content {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Text ACF đi kèm ảnh */
+.custom-section .tour-item p {
+  flex: 1;
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
+  margin: 0;
+  padding: 15px 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Phân trang */
+.pagination {
+  margin-top: 40px;
+}
+
+.pagination .page-numbers {
+  display: inline-block;
+  margin: 0 5px;
+  padding: 8px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.pagination .page-numbers.current,
+.pagination .page-numbers:hover {
+  background: #0073aa;
+  color: #fff;
+  border-color: #0073aa;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
   .tour-item {
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: column !important;
     text-align: center;
   }
+
+  .tour-item img,
   .tour-thumb img {
-    height: auto;
+    max-width: 100%;
   }
-  .tour-content {
+}
+
+/* Trang Du Lịch Trong Nước */
+/* Khung chính */
+.du-lich-trong-nuoc {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  background: #fdfdfd;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* Tiêu đề trang */
+.du-lich-trong-nuoc .page-title {
+  font-size: 34px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #2c3e50;
+  margin-bottom: 40px;
+  position: relative;
+  text-align: center;
+}
+
+.du-lich-trong-nuoc .page-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff7a00, #ffb347);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* Nội dung */
+.du-lich-trong-nuoc .page-content {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #444;
+  text-align: justify;
+  max-width: 900px;   /* giới hạn độ rộng chữ */
+  margin: 0 auto;
+}
+
+/* Định dạng đoạn văn */
+.du-lich-trong-nuoc .page-content p {
+  margin-bottom: 20px;
+}
+
+/* Ảnh đơn lẻ trong content (căn giữa) */
+.du-lich-trong-nuoc .page-content img {
+  display: block;
+  margin: 25px auto;
+  max-width: 90%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.du-lich-trong-nuoc .page-content img:hover {
+  transform: scale(1.05);
+}
+
+/* Heading trong content */
+.du-lich-trong-nuoc .page-content h2,
+.du-lich-trong-nuoc .page-content h3 {
+  color: #e67e22;
+  font-weight: 600;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* ===================== */
+/* Bố cục 2 cột ảnh + chữ */
+/* ===================== */
+.du-lich-trong-nuoc .content-block {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin: 50px 0;
+}
+
+.du-lich-trong-nuoc .content-block img {
+  flex: 1;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.du-lich-trong-nuoc .content-block img:hover {
+  transform: scale(1.05);
+}
+
+.du-lich-trong-nuoc .content-block .text {
+  flex: 1;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #444;
+  text-align: justify;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .du-lich-trong-nuoc {
+    padding: 30px 15px;
+  }
+
+  .du-lich-trong-nuoc .page-title {
+    font-size: 26px;
+  }
+
+  .du-lich-trong-nuoc .page-content {
+    font-size: 16px;
+    max-width: 100%;
+  }
+
+  .du-lich-trong-nuoc .page-content img {
+    max-width: 100%;
+  }
+
+  .du-lich-trong-nuoc .content-block {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .du-lich-trong-nuoc .content-block img,
+  .du-lich-trong-nuoc .content-block .text {
+    flex: unset;
+    width: 100%;
+  }
+}
+/* ================================
+   HEADER MOBILE MENU - GỌN GÀNG
+   ================================ */
+@media (max-width: 768px) {
+  /* Ẩn menu desktop */
+  .main-nav {
+    display: none;
+  }
+
+  /* Nút menu hamburger */
+  .menu-toggle {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+    background: #0078d7;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-left: auto;
+  }
+
+  /* Menu mở */
+  .main-nav.active {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(20, 20, 20, 0.95);
+    z-index: 999;
+    padding-top: 70px;
+  }
+
+  /* Danh sách menu */
+  .main-nav .nav-list {
+    list-style: none;
     padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+
+  /* Item */
+  .main-nav .nav-list li {
+    margin: 8px 0;
+  }
+
+  /* Link */
+  .main-nav .nav-list li a {
+    display: block;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  /* Hover */
+  .main-nav .nav-list li a:hover {
+    background: #0078d7;
+    border-radius: 4px;
+  }
+
+  /* Hotline */
+  .hotline {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 16px;
+    border-radius: 30px;
+    z-index: 1000;
+  }
+
+  .hotline a {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+}
+
+/* ================================
+   SERVICE FEATURES - MOBILE
+   ================================ */
+@media (max-width: 768px) {
+  .service-features-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* chia 2 cột */
+    gap: 20px;
+    padding: 50px;
+  }
+
+  .service-feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;       /* canh giữa icon + text */
+    justify-content: center;
+    background: #fff;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    text-align: center;
+  }
+
+  .service-feature-item img.feature-icon {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 8px;
+  }
+
+  .service-feature-item .feature-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.3;
+  }
+}
+
+/* ================================
+   SINGLE POST HIGHLIGHT - MOBILE
+   ================================ */
+@media (max-width: 768px) {
+  .single-post-highlight {
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 15px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  }
+
+  .single-post-highlight .single-post {
+    display: flex;
+    flex-direction: row;     /* ảnh - chữ ngang hàng */
+    align-items: center;     /* chữ căn giữa theo chiều cao ảnh */
+    gap: 15px;
+    text-align: left;
+  }
+
+  /* Ảnh */
+  .single-post-highlight .single-post img {
+    flex: 0 0 45%;
+    max-width: 45%;
+    border-radius: 10px;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Khối chữ */
+  .single-post-highlight .post-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* căn giữa dọc */
+  }
+
+  .single-post-highlight .post-info h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 10px;
+    color: #222;
+  }
+
+  .single-post-highlight .post-info .post-content {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #444;
+  }
+
+  .single-post-highlight .post-info .post-content p {
+    margin-bottom: 8px;
+  }
+}
+
+/* Màn hình nhỏ hơn 480px thì ảnh xuống dưới */
+@media (max-width: 480px) {
+  .single-post-highlight .single-post {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .single-post-highlight .single-post img {
+    max-width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .single-post-highlight .post-info {
+    align-items: center;
+    text-align: center;
   }
 }
