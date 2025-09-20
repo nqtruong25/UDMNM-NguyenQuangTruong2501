@@ -1,0 +1,102 @@
+#support-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Nút tròn */
+.support-toggle {
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(135deg, #41d0e9, #41d0e9);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 24px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.support-toggle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Popup box */
+.support-box {
+  display: none;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  margin-bottom: 10px;
+  width: 260px;
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  overflow: hidden;
+  animation: slideUp 0.3s ease;
+}
+
+/* Header */
+.support-header {
+  background: linear-gradient(135deg, #5bd7ed, #5bd7ed);
+  color: #fff;
+  padding: 12px 15px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+}
+
+.support-header .close-btn {
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+.support-header .close-btn:hover {
+  color: #ffd9b3;
+}
+
+/* Item */
+.support-item {
+  padding: 14px 15px;
+  border-bottom: 1px solid #f2f2f2;
+  transition: background 0.2s ease;
+}
+
+.support-item:last-child {
+  border-bottom: none;
+}
+
+.support-item a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.support-item:hover {
+  background: #f9f9f9;
+}
+
+.support-item p {
+  font-size: 13px;
+  color: #888;
+  margin: 5px 0 0 28px;
+}
+
+/* Hiệu ứng */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
