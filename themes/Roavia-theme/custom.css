@@ -19,10 +19,7 @@ Header overlay
 }
 
 /* Logo */
-.logo img {
-  height: 55px;
-  width: auto;
-}
+
 
 .logo a {
   font-size: 22px;
@@ -162,7 +159,7 @@ Header overlay
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 25px;
 }
 
 .logo img {
@@ -199,83 +196,117 @@ Header overlay
 .footer {
   background: #27384b;
   color: #fff;
-  padding: 50px 0 35px 0;
+  padding: 50px 20px 35px 20px; /* thêm padding ngang */
   font-family: 'Segoe UI', Arial, sans-serif;
-  letter-spacing: 0.1px;
+  letter-spacing: 0.2px;
+  line-height: 1.6;
 }
+
 .footer-container {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  max-width: 1600px;
+  max-width: 1400px;   /* bớt rộng lại cho cân */
   margin: 0 auto;
-  gap: 16px;
+  gap: 40px;
+  flex-wrap: wrap;     /* tự xuống dòng khi hẹp */
 }
+
 .footer-column {
   flex: 1;
   min-width: 260px;
 }
+
 .footer-title {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 700;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   color: #fff;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
+  position: relative;
 }
-.footer-info, .footer-links {
+
+.footer-title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  background: #51aaff;
+  margin-top: 8px;
+  border-radius: 2px;
+}
+
+.footer-info, 
+.footer-links {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 .footer-info li,
 .footer-links li {
-  margin-bottom: 16px;
-  font-size: 1.25rem;
+  margin-bottom: 14px;
+  font-size: 1.1rem;
   display: flex;
   align-items: center;
   transition: color 0.2s;
 }
+
 .footer-info li i,
 .footer-links li i {
   margin-right: 10px;
-  font-size: 1.3em;
+  font-size: 1.2em;
   color: #51aaff;
   transition: color 0.2s;
 }
+
 .footer-links li a {
   color: #fff;
   text-decoration: none;
   transition: color 0.2s;
-  font-size: 1.22rem;
+  font-size: 1.1rem;
 }
+
 .footer-links li a:hover {
   color: #51aaff;
   text-decoration: underline;
 }
+
 .footer-social {
-  margin-top: 8px;
+  margin-top: 12px;
 }
+
 .footer-social a {
   display: inline-block;
   margin-right: 14px;
   color: #51aaff;
-  font-size: 1.5rem;
-  transition: color 0.2s;
+  font-size: 1.4rem;
+  transition: color 0.2s; 
 }
+
 .footer-social a:hover {
   color: #fff;
 }
+
+/* Responsive */
 @media (max-width: 1200px) {
   .footer-container {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 32px;
+    align-items: center; /* căn giữa thay vì lệch trái */
+    text-align: center;
+    gap: 40px;
   }
+
   .footer-column {
     min-width: unset;
-    margin-bottom: 0px;
+    margin-bottom: 0;
+  }
+
+  .footer-info li,
+  .footer-links li {
+    justify-content: center; /* icon + text căn giữa */
   }
 }
+
 
 
 /* Responsive */
@@ -961,7 +992,7 @@ Header overlay
   padding: 100px 50px;
   max-width: 1400px;              /* Giới hạn chiều rộng, căn giữa */
   margin: 0 auto;
-  min-height: 300px;
+  min-height: 30px;
 }
 .service-feature-item {
   display: flex;
@@ -1022,7 +1053,7 @@ Header overlay
 /* Vùng bao bọc */
 .single-post-highlight {
   max-width: 1200px;
-  margin: 60px auto;
+  margin: 6px auto;
   padding: 40px;
   background: #fff;
   border-radius: 24px;
@@ -1535,49 +1566,72 @@ Header overlay
 }
 
 
-/* css trang du lịch ngoài nước */
-/* Container chính */
+/* Trang Du Lịch Ngoài Nước */
 .du-lich-ngoai-nuoc {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
-  font-family: Arial, sans-serif;
+  padding: 60px 24px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #444;
 }
 
 /* Tiêu đề trang */
 .du-lich-ngoai-nuoc .page-title,
 .site-content h2 {
   text-align: center;
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 40px;
-  color: #333;
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: #2c3e50;
+  position: relative;
+  letter-spacing: 1px;
+}
+
+.du-lich-ngoai-nuoc .page-title::after,
+.site-content h2::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff7a00, #ffb347);
+  margin: 12px auto 0;
+  border-radius: 3px;
 }
 
 /* Nội dung mô tả */
 .du-lich-ngoai-nuoc .page-content {
   text-align: justify;
-  font-size: 16px;
-  line-height: 1.7;
-  margin-bottom: 50px;
+  font-size: 17px;
+  line-height: 1.9;
+  margin-bottom: 60px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
   color: #555;
+  letter-spacing: 0.2px;
 }
 
-/* Vùng custom section chứa ảnh + text */
+/* Section chứa các tour */
 .custom-section {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 60px;
 }
 
-/* Item bài viết + ACF ảnh + text */
+/* Tour item */
 .tour-item {
   display: flex;
   align-items: center;
-  gap: 25px;
-  margin-bottom: 50px;
+  gap: 40px;
+  margin-bottom: 40px;
+  transition: transform 0.3s ease;
 }
 
+.tour-item:hover {
+  transform: translateY(-6px);
+}
+
+/* Khi muốn đảo ngược vị trí ảnh và chữ */
 .tour-item.flex-row-reverse {
   flex-direction: row-reverse;
 }
@@ -1586,84 +1640,90 @@ Header overlay
 .tour-item img,
 .tour-thumb img {
   width: 100%;
-  max-width: 500px;
-  border-radius: 20px;
+  max-width: 520px;
+  border-radius: 16px;
   object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .tour-item img:hover,
 .tour-thumb img:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.18);
 }
 
-/* Nội dung bài */
+/* Nội dung tour */
 .tour-content {
   flex: 1;
 }
 
 .tour-title {
-  font-size: 22px;
-  margin-bottom: 10px;
+  font-size: 24px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #2c3e50;
 }
 
 .tour-title a {
   text-decoration: none;
-  color: #0073aa;
+  color: inherit;
   transition: color 0.3s ease;
 }
 
 .tour-title a:hover {
-  color: #005580;
+  color: #e67e22;
 }
 
 .tour-meta {
   font-size: 14px;
-  color: #888;
+  color: #999;
   margin-bottom: 15px;
 }
 
 .tour-full-content {
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.7;
   color: #444;
 }
 
-/* Text ACF đi kèm ảnh */
+/* Text đi kèm ảnh */
 .custom-section .tour-item p {
   flex: 1;
   font-size: 16px;
   color: #444;
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0;
-  padding: 15px 20px;
+  padding: 18px 22px;
   background: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
 }
 
 /* Phân trang */
 .pagination {
-  margin-top: 40px;
+  margin-top: 50px;
+  text-align: center;
 }
 
 .pagination .page-numbers {
   display: inline-block;
-  margin: 0 5px;
-  padding: 8px 14px;
+  margin: 0 6px;
+  padding: 10px 16px;
   border: 1px solid #ddd;
-  border-radius: 6px;
+  border-radius: 8px;
   text-decoration: none;
   color: #333;
+  font-size: 15px;
   transition: all 0.3s ease;
 }
 
 .pagination .page-numbers.current,
 .pagination .page-numbers:hover {
-  background: #0073aa;
+  background: linear-gradient(90deg, #0073aa, #00aaff);
   color: #fff;
-  border-color: #0073aa;
+  border-color: transparent;
+  box-shadow: 0 4px 10px rgba(0,115,170,0.25);
 }
 
 /* Responsive */
@@ -1671,74 +1731,87 @@ Header overlay
   .tour-item {
     flex-direction: column !important;
     text-align: center;
+    gap: 24px;
   }
 
   .tour-item img,
   .tour-thumb img {
     max-width: 100%;
   }
+
+  .tour-content {
+    text-align: center;
+  }
+
+  .custom-section .tour-item p {
+    text-align: justify;
+  }
 }
 
+
+
 /* Trang Du Lịch Trong Nước */
-/* Khung chính */
 .du-lich-trong-nuoc {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 50px 20px;
-  background: #fdfdfd;
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  padding: 60px 24px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 /* Tiêu đề trang */
 .du-lich-trong-nuoc .page-title {
-  font-size: 34px;
+  font-size: 32px;
   font-weight: 700;
   text-transform: uppercase;
   color: #2c3e50;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   position: relative;
   text-align: center;
+  letter-spacing: 1px;
 }
 
 .du-lich-trong-nuoc .page-title::after {
   content: "";
   display: block;
-  width: 80px;
+  width: 100px;
   height: 4px;
   background: linear-gradient(90deg, #ff7a00, #ffb347);
-  margin: 10px auto 0;
-  border-radius: 2px;
+  margin: 12px auto 0;
+  border-radius: 4px;
 }
 
 /* Nội dung */
 .du-lich-trong-nuoc .page-content {
-  font-size: 18px;
-  line-height: 1.8;
+  font-size: 17px;
+  line-height: 1.9;
   color: #444;
   text-align: justify;
-  max-width: 900px;   /* giới hạn độ rộng chữ */
+  max-width: 900px;
   margin: 0 auto;
+  letter-spacing: 0.2px;
 }
 
-/* Định dạng đoạn văn */
 .du-lich-trong-nuoc .page-content p {
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
-/* Ảnh đơn lẻ trong content (căn giữa) */
+/* Ảnh trong content */
 .du-lich-trong-nuoc .page-content img {
   display: block;
-  margin: 25px auto;
-  max-width: 90%;
+  margin: 28px auto;
+  max-width: 92%;
   height: auto;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .du-lich-trong-nuoc .page-content img:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
 }
 
 /* Heading trong content */
@@ -1746,53 +1819,60 @@ Header overlay
 .du-lich-trong-nuoc .page-content h3 {
   color: #e67e22;
   font-weight: 600;
-  margin-top: 30px;
-  margin-bottom: 15px;
+  margin-top: 40px;
+  margin-bottom: 18px;
   text-align: center;
+  line-height: 1.4;
 }
 
-/* ===================== */
 /* Bố cục 2 cột ảnh + chữ */
-/* ===================== */
 .du-lich-trong-nuoc .content-block {
   display: flex;
   align-items: center;
   gap: 40px;
-  margin: 50px 0;
+  margin: 60px 0;
+  transition: transform 0.3s ease;
+}
+
+.du-lich-trong-nuoc .content-block:hover {
+  transform: translateY(-5px);
 }
 
 .du-lich-trong-nuoc .content-block img {
   flex: 1;
   max-width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .du-lich-trong-nuoc .content-block img:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
 }
 
 .du-lich-trong-nuoc .content-block .text {
   flex: 1;
-  font-size: 18px;
-  line-height: 1.8;
+  font-size: 17px;
+  line-height: 1.9;
   color: #444;
   text-align: justify;
+  letter-spacing: 0.2px;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .du-lich-trong-nuoc {
-    padding: 30px 15px;
+    padding: 40px 16px;
   }
 
   .du-lich-trong-nuoc .page-title {
-    font-size: 26px;
+    font-size: 24px;
+    margin-bottom: 35px;
   }
 
   .du-lich-trong-nuoc .page-content {
-    font-size: 16px;
+    font-size: 15.5px;
     max-width: 100%;
   }
 
@@ -1802,7 +1882,8 @@ Header overlay
 
   .du-lich-trong-nuoc .content-block {
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
+    margin: 40px 0;
   }
 
   .du-lich-trong-nuoc .content-block img,
@@ -1811,6 +1892,9 @@ Header overlay
     width: 100%;
   }
 }
+
+
+
 /* ================================
    HEADER MOBILE MENU - GỌN GÀNG
    ================================ */

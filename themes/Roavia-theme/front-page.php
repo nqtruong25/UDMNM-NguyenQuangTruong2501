@@ -6,6 +6,7 @@ get_header();
 <?php echo do_shortcode('[smartslider3 slider="2"]'); ?>
 
 
+
 <!-- Service Features (icons + text) -->
 <?php
 $group = get_field('logo'); 

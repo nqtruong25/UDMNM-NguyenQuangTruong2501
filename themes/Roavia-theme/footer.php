@@ -39,15 +39,7 @@
       </div>
     </div>
   </div>
-  <div class="logo">
-    <?php
-      if (has_custom_logo()) {
-        the_custom_logo();
-      } else {
-        echo '<a href="' . esc_url(home_url('/')) . '">' . get_bloginfo('name') . '</a>';
-      }
-    ?>
-  </div>
+
   <p class="text-center py-3">&copy; <?php echo date('Y'); ?> Roavia Theme by Quang Trường - v1.0</p>
 </footer>
 <?php wp_footer(); ?>
