@@ -1962,8 +1962,7 @@ Header overlay
   /* Hotline */
   .hotline {
     position: fixed;
-    bottom: 70px;
-    right: 5px;
+    bottom: 85px;
     padding: 10px 16px;
     border-radius: 30px;
     z-index: 1000;
@@ -2088,16 +2087,3 @@ Header overlay
     text-align: center;
   }
 }
-.banner-wrap {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.banner-item img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
