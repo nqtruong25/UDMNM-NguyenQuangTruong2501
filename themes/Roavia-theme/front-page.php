@@ -124,7 +124,7 @@ if ($query->have_posts()) : ?>
     <!-- Slider Wrapper -->
     <div class="tin-tieu-diem-slider swiper">
         <div class="swiper-wrapper">
-          
+          <div class="row">
             <?php while ($query->have_posts()) : $query->the_post(); ?>
             <div class="col-md-4">
                 <div class="swiper-slide">
@@ -143,7 +143,7 @@ if ($query->have_posts()) : ?>
                 </div>
                 </div>
             <?php endwhile; ?>
-            
+                            </div>
         </div>
 
         <!-- Nút điều hướng -->
