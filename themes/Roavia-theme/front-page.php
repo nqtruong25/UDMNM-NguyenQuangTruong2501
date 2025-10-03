@@ -126,7 +126,7 @@ if ($query->have_posts()) : ?>
         <div class="swiper-wrapper">
           <div class="row">
             <?php while ($query->have_posts()) : $query->the_post(); ?>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="swiper-slide">
                     <div class="slider-post-item">
                         <a href="<?php the_permalink(); ?>">
