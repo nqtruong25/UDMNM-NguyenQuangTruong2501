@@ -87,7 +87,7 @@ $group = get_field('logo');
     <p>Tourist Travel cung cấp đầy đủ dịch vụ dành cho bạn!</p>
     <a href="#" class="home-tour-btn">XEM NGAY <span>&#8594;</span></a>
   </div>
-
+</section>
 
 <?php
 /**
@@ -141,7 +141,6 @@ if ($query->have_posts()) : ?>
                         </a>
                     </div>
                 </div>
-              
             <?php endwhile; ?>
             </div>
         </div>
