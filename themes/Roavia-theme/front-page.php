@@ -124,9 +124,9 @@ if ($query->have_posts()) : ?>
     <!-- Slider Wrapper -->
     <div class="tin-tieu-diem-slider swiper">
         <div class="swiper-wrapper">
-          <div class="col-md-4">
+          
             <?php while ($query->have_posts()) : $query->the_post(); ?>
-            
+            <div class="col-md-4">
                 <div class="swiper-slide">
                     <div class="slider-post-item">
                         <a href="<?php the_permalink(); ?>">
@@ -141,8 +141,9 @@ if ($query->have_posts()) : ?>
                         </a>
                     </div>
                 </div>
+                </div>
             <?php endwhile; ?>
-            </div>
+            
         </div>
 
         <!-- Nút điều hướng -->
