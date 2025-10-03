@@ -2100,3 +2100,60 @@ Header overlay
   height: auto;
   border-radius: 10px;
 }
+
+/* Banner Slider (ACF group img1, img2, img3...) */
+.banner-slider-wrap {
+  position: relative;
+}
+
+.banner-slider {
+  width: 100%;
+  /* Giữ tỉ lệ banner; chỉnh lại theo ảnh của bạn */
+  aspect-ratio: 16 / 9;
+  max-height: 86vh;
+  overflow: hidden;
+}
+
+.banner-slider .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-slider .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    /* phủ kín khung */
+  display: block;
+}
+
+/* Nút điều hướng */
+.banner-slider .swiper-button-prev,
+.banner-slider .swiper-button-next {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: rgba(0,0,0,.35);
+  backdrop-filter: blur(2px);
+}
+.banner-slider .swiper-button-prev::after,
+.banner-slider .swiper-button-next::after {
+  font-size: 18px;
+  color: #fff;
+}
+
+/* Chấm phân trang */
+.banner-slider .swiper-pagination-bullet {
+  opacity: .6;
+}
+.banner-slider .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .banner-slider {
+    aspect-ratio: 9 / 16; /* mobile cao hơn cho đẹp */
+    max-height: none;
+  }
+}

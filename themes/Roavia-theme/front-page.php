@@ -3,93 +3,88 @@
 get_header();
 ?>
 <!-- Thêm slider Smart Slider 3 ngay sau header -->
-<div class="acf-slider">
-  <div class="slides">
-    <?php
-$group = get_field('banner'); // lấy ra cả group
+<?php
+/**
+ * Banner slider from ACF group 'banner' with keys img1, img2, ...
+ * Requires Swiper (CSS/JS) enqueued separately (xem phần 3).
+ */
 
-if ($group) {
-    $i = 1;
-    echo '<div class="acf-slider"><div class="slides">';
-    foreach ($group as $key => $img_id) {
-        if ($img_id) {
-            // Nếu sub-field ảnh trả về ID
-            $url = wp_get_attachment_image_url($img_id, 'full');
-            echo '<div class="slide"><img src="' . esc_url($url) . '" alt="banner' . $i . '" class="img' . $i . '"></div>';
-            $i++;
-        }
-    }
-    echo '</div><button class="prev">&#10094;</button><button class="next">&#10095;</button></div>';
+$banner = get_field('banner'); // đổi 'banner' thành tên group của bạn
+if (empty($banner) || !is_array($banner)) {
+  return;
 }
+
+// Gom các ảnh có key dạng img1, img2, img3...
+$images = [];
+foreach ($banner as $key => $val) {
+  if (!preg_match('/^img(\d+)$/', $key, $m)) continue;
+  $index = (int)$m[1];
+
+  $url = $alt = '';
+  if (empty($val)) continue;
+
+  // ACF Image: Array / ID / URL
+  if (is_array($val)) {
+    $url = isset($val['url']) ? $val['url'] : '';
+    $alt = isset($val['alt']) ? $val['alt'] : '';
+  } elseif (is_numeric($val)) {
+    $url = wp_get_attachment_image_url((int)$val, 'full');
+    $alt = get_post_meta((int)$val, '_wp_attachment_image_alt', true);
+  } elseif (is_string($val)) {
+    $url = $val;
+    $alt = '';
+  }
+
+  if ($url) {
+    $images[$index] = [
+      'url' => $url,
+      'alt' => $alt ?: get_bloginfo('name'),
+    ];
+  }
+}
+
+// Sắp xếp theo số thứ tự img1 < img2 < ...
+ksort($images);
+
+if (!$images) return;
 ?>
+
+<section id="banner-slider-wrap" class="banner-slider-wrap">
+  <div id="bannerSlider" class="swiper banner-slider">
+    <div class="swiper-wrapper">
+      <?php foreach ($images as $i => $img): ?>
+        <div class="swiper-slide">
+          <img
+            src="<?php echo esc_url($img['url']); ?>"
+            alt="<?php echo esc_attr($img['alt']); ?>"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      <?php endforeach; ?>
+    </div>
+
+    <!-- Điều hướng + chấm -->
+    <div class="swiper-button-prev" aria-label="Prev"></div>
+    <div class="swiper-button-next" aria-label="Next"></div>
+    <div class="swiper-pagination"></div>
   </div>
-  <button class="prev">&#10094;</button>
-  <button class="next">&#10095;</button>
-</div>
-
-<style>
-.acf-slider {
-  position: relative;
-  max-width: 100%;
-  overflow: hidden;
-}
-
-.acf-slider .slides {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.acf-slider .slide {
-  min-width: 100%;
-  box-sizing: border-box;
-}
-
-.acf-slider img {
-  width: 100%;
-  display: block;
-}
-
-.acf-slider .prev, .acf-slider .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  color: #fff;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.acf-slider .prev { left: 10px; }
-.acf-slider .next { right: 10px; }
-</style>
+</section>
 
 <script>
-document.addEventListener("DOMContentLoaded", function(){
-    const slides = document.querySelector(".acf-slider .slides");
-    const slideCount = document.querySelectorAll(".acf-slider .slide").length;
-    const prevBtn = document.querySelector(".acf-slider .prev");
-    const nextBtn = document.querySelector(".acf-slider .next");
-    let index = 0;
-
-    function showSlide(i) {
-        if (i >= slideCount) index = 0;
-        else if (i < 0) index = slideCount - 1;
-        else index = i;
-
-        slides.style.transform = "translateX(" + (-index * 100) + "%)";
-    }
-
-    nextBtn.addEventListener("click", () => showSlide(index + 1));
-    prevBtn.addEventListener("click", () => showSlide(index - 1));
-
-    // Auto slide mỗi 5s
-    setInterval(() => {
-        showSlide(index + 1);
-    }, 5000);
-});
+  (function(){
+    if (typeof Swiper === 'undefined') return;
+    new Swiper('#bannerSlider', {
+      loop: true,
+      speed: 600,
+      autoplay: { delay: 3500, disableOnInteraction: false },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      // Có thể bật effect khác như 'fade'
+      // effect: 'fade', fadeEffect: { crossFade: true },
+    });
+  })();
 </script>
-
 
 
 
