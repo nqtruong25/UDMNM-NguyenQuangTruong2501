@@ -3,21 +3,89 @@
 get_header();
 ?>
 <!-- Thêm slider Smart Slider 3 ngay sau header -->
-<?php
-$group = get_field('banner'); 
-
-if ($group) {
-    $i = 1;
-    foreach ($group as $key => $img) {
-        if (!empty($img)) {
-            // Trường là image => trả về URL hoặc array tùy cài đặt
-            $url = is_array($img) ? $img['url'] : $img;
-            echo '<img src="' . esc_url($url) . '" alt="banner' . $i . '" class="img' . $i . '">';
-            $i++;
+<div class="acf-slider">
+  <div class="slides">
+    <?php
+    $group = get_field('banner'); 
+    if ($group) {
+        $i = 1;
+        foreach ($group as $key => $img_id) {
+            if ($img_id) {
+                $url = wp_get_attachment_image_url($img_id, 'full');
+                echo '<div class="slide"><img src="' . esc_url($url) . '" alt="banner' . $i . '" class="img' . $i . '"></div>';
+                $i++;
+            }
         }
     }
+    ?>
+  </div>
+  <button class="prev">&#10094;</button>
+  <button class="next">&#10095;</button>
+</div>
+
+<style>
+.acf-slider {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
 }
-?>
+
+.acf-slider .slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.acf-slider .slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.acf-slider img {
+  width: 100%;
+  display: block;
+}
+
+.acf-slider .prev, .acf-slider .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.acf-slider .prev { left: 10px; }
+.acf-slider .next { right: 10px; }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+    const slides = document.querySelector(".acf-slider .slides");
+    const slideCount = document.querySelectorAll(".acf-slider .slide").length;
+    const prevBtn = document.querySelector(".acf-slider .prev");
+    const nextBtn = document.querySelector(".acf-slider .next");
+    let index = 0;
+
+    function showSlide(i) {
+        if (i >= slideCount) index = 0;
+        else if (i < 0) index = slideCount - 1;
+        else index = i;
+
+        slides.style.transform = "translateX(" + (-index * 100) + "%)";
+    }
+
+    nextBtn.addEventListener("click", () => showSlide(index + 1));
+    prevBtn.addEventListener("click", () => showSlide(index - 1));
+
+    // Auto slide mỗi 5s
+    setInterval(() => {
+        showSlide(index + 1);
+    }, 5000);
+});
+</script>
+
 
 
 
