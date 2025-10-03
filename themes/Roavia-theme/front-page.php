@@ -188,7 +188,7 @@ if ($query->have_posts()) :
     wp_reset_postdata();
 endif;
 ?>
-
+</section>
 
 
 <!-- Footer chỉ xuất hiện ở trang chủ -->
