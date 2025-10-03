@@ -6,18 +6,22 @@ get_header();
 <div class="acf-slider">
   <div class="slides">
     <?php
-    $group = get_field('banner'); 
-    if ($group) {
-        $i = 1;
-        foreach ($group as $key => $img_id) {
-            if ($img_id) {
-                $url = wp_get_attachment_image_url($img_id, 'full');
-                echo '<div class="slide"><img src="' . esc_url($url) . '" alt="banner' . $i . '" class="img' . $i . '"></div>';
-                $i++;
-            }
+$group = get_field('banner'); // lấy ra cả group
+
+if ($group) {
+    $i = 1;
+    echo '<div class="acf-slider"><div class="slides">';
+    foreach ($group as $key => $img_id) {
+        if ($img_id) {
+            // Nếu sub-field ảnh trả về ID
+            $url = wp_get_attachment_image_url($img_id, 'full');
+            echo '<div class="slide"><img src="' . esc_url($url) . '" alt="banner' . $i . '" class="img' . $i . '"></div>';
+            $i++;
         }
     }
-    ?>
+    echo '</div><button class="prev">&#10094;</button><button class="next">&#10095;</button></div>';
+}
+?>
   </div>
   <button class="prev">&#10094;</button>
   <button class="next">&#10095;</button>
