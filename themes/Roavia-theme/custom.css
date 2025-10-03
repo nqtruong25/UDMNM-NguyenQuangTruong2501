@@ -324,19 +324,23 @@ Header overlay
 .home-tour-highlight {
   position: relative;
   width: 100%;
-  height: 340px;
+  height: 400px; /* bạn có thể chỉnh */
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  color: #fff;
   overflow: hidden;
+  border-radius: 16px;
+  margin: 40px auto;
 }
 
+/* Background */
 .home-tour-bg {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
   overflow: hidden;
 }
 
@@ -350,44 +354,44 @@ Header overlay
 .home-tour-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(31, 31, 31, 0.55);
+  background: rgba(0,0,0,0.4); /* lớp mờ */
+}
+
+/* Nội dung */
+.home-tour-content {
+  position: relative;
+  max-width: 700px;
+  padding: 20px;
   z-index: 2;
 }
 
-.home-tour-content {
-  position: relative;
-  z-index: 3;
-  width: 100%;
-  text-align: center;
-}
-
 .home-tour-content h2 {
-  color: #fff;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 12px;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.3;
 }
 
 .home-tour-content p {
-  color: #fff;
-  font-size: 1.25rem;
-  margin-bottom: 28px;
+  font-size: 18px;
+  margin-bottom: 24px;
 }
 
 .home-tour-btn {
-  background: #ff8000;
-  color: #fff;
-  padding: 0.9rem 2.2rem;
-  border-radius: 30px;
-  font-weight: 600;
-  font-size: 1.1rem;
-  text-decoration: none;
   display: inline-block;
-  transition: background 0.2s;
+  padding: 12px 28px;
+  background: #ff6600;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
 }
 
 .home-tour-btn:hover {
-  background: #e06900;
+  background: #e05500;
+  transform: translateY(-2px);
 }
 
 .news-featured-section {
