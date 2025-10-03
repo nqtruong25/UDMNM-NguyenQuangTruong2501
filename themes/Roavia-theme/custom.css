@@ -1520,13 +1520,12 @@ Header overlay
 }
 
 .tin-tieu-diem-slider .swiper-wrapper {
-  display: flex;
+
   justify-content: space-between; /* chia đều card ra 2 bên */
 }
 
 .tin-tieu-diem-slider .swiper-slide {
   flex: 1; /* chia đều độ rộng */
-  max-width: 25%; /* đúng 4 cột */
   padding: 0 12px; /* khoảng cách giữa các ảnh */
   box-sizing: border-box;
 }

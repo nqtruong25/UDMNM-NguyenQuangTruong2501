@@ -50,7 +50,7 @@ $group = get_field('logo');
   }
   ?>
 </div>
-
+<div class="container">
 <section class="single-post-highlight">
   <?php
   $the_query = new WP_Query([
@@ -190,7 +190,7 @@ if ($query->have_posts()) :
 endif;
 ?>
 </section>
-
+</div>
 
 <!-- Footer chỉ xuất hiện ở trang chủ -->
 <?php
