@@ -8,15 +8,17 @@ $group = get_field('banner');
 
 if ($group) {
     $i = 1;
-    foreach ($group as $key => $img_id) {
-        if ($img_id) {
-            $url = wp_get_attachment_image_url($img_id, 'full');
+    foreach ($group as $key => $img) {
+        if (!empty($img)) {
+            // Trường là image => trả về URL hoặc array tùy cài đặt
+            $url = is_array($img) ? $img['url'] : $img;
             echo '<img src="' . esc_url($url) . '" alt="banner' . $i . '" class="img' . $i . '">';
             $i++;
         }
     }
 }
 ?>
+
 
 
 
