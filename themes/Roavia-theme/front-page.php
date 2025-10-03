@@ -4,88 +4,8 @@ get_header();
 ?>
 <!-- Thêm slider Smart Slider 3 ngay sau header -->
 <?php
-/**
- * Banner slider from ACF group 'banner' with keys img1, img2, ...
- * Requires Swiper (CSS/JS) enqueued separately (xem phần 3).
- */
-
-$banner = get_field('banner'); // đổi 'banner' thành tên group của bạn
-if (empty($banner) || !is_array($banner)) {
-  return;
-}
-
-// Gom các ảnh có key dạng img1, img2, img3...
-$images = [];
-foreach ($banner as $key => $val) {
-  if (!preg_match('/^img(\d+)$/', $key, $m)) continue;
-  $index = (int)$m[1];
-
-  $url = $alt = '';
-  if (empty($val)) continue;
-
-  // ACF Image: Array / ID / URL
-  if (is_array($val)) {
-    $url = isset($val['url']) ? $val['url'] : '';
-    $alt = isset($val['alt']) ? $val['alt'] : '';
-  } elseif (is_numeric($val)) {
-    $url = wp_get_attachment_image_url((int)$val, 'full');
-    $alt = get_post_meta((int)$val, '_wp_attachment_image_alt', true);
-  } elseif (is_string($val)) {
-    $url = $val;
-    $alt = '';
-  }
-
-  if ($url) {
-    $images[$index] = [
-      'url' => $url,
-      'alt' => $alt ?: get_bloginfo('name'),
-    ];
-  }
-}
-
-// Sắp xếp theo số thứ tự img1 < img2 < ...
-ksort($images);
-
-if (!$images) return;
+echo do_shortcode('[smartslider3 slider="2"]');
 ?>
-
-<section id="banner-slider-wrap" class="banner-slider-wrap">
-  <div id="bannerSlider" class="swiper banner-slider">
-    <div class="swiper-wrapper">
-      <?php foreach ($images as $i => $img): ?>
-        <div class="swiper-slide">
-          <img
-            src="<?php echo esc_url($img['url']); ?>"
-            alt="<?php echo esc_attr($img['alt']); ?>"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-      <?php endforeach; ?>
-    </div>
-
-    <!-- Điều hướng + chấm -->
-    <div class="swiper-button-prev" aria-label="Prev"></div>
-    <div class="swiper-button-next" aria-label="Next"></div>
-    <div class="swiper-pagination"></div>
-  </div>
-</section>
-
-<script>
-  (function(){
-    if (typeof Swiper === 'undefined') return;
-    new Swiper('#bannerSlider', {
-      loop: true,
-      speed: 600,
-      autoplay: { delay: 3500, disableOnInteraction: false },
-      pagination: { el: '.swiper-pagination', clickable: true },
-      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-      // Có thể bật effect khác như 'fade'
-      // effect: 'fade', fadeEffect: { crossFade: true },
-    });
-  })();
-</script>
-
 
 
 
