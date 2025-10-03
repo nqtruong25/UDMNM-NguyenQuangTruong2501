@@ -76,7 +76,7 @@ $group = get_field('logo');
       echo '<p>Không tìm thấy bài viết!</p>';
   endif;
   ?>
-</section>
+
 <section class="home-tour-highlight">
   <div class="home-tour-bg">
     <img src="<?php echo get_template_directory_uri(); ?>/assets/anh2.png" alt="Background" />
@@ -87,7 +87,7 @@ $group = get_field('logo');
     <p>Tourist Travel cung cấp đầy đủ dịch vụ dành cho bạn!</p>
     <a href="#" class="home-tour-btn">XEM NGAY <span>&#8594;</span></a>
   </div>
-</section>
+
 
 <?php
 /**
