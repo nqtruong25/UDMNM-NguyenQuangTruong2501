@@ -3,7 +3,33 @@
 get_header();
 ?>
 <!-- Thêm slider Smart Slider 3 ngay sau header -->
-<?php echo do_shortcode('[smartslider3 slider="2"]'); ?>
+<?php
+$banner = get_field('banner'); // Lấy group field
+
+if ($banner) {
+    echo '<div class="banner-wrap">';
+
+    // Lặp qua các key con trong group
+    foreach ($banner as $key => $img) {
+        if (!empty($img)) {
+            // Nếu ACF trả về ID ảnh
+            if (is_numeric($img)) {
+                $img_url = wp_get_attachment_image_url($img, 'full');
+            } else {
+                // Nếu ACF trả về URL
+                $img_url = $img;
+            }
+
+            echo '<div class="banner-item">';
+            echo '<img src="' . esc_url($img_url) . '" alt="banner">';
+            echo '</div>';
+        }
+    }
+
+    echo '</div>';
+}
+?>
+
 
 
 

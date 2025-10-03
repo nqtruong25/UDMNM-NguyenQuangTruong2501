@@ -2088,3 +2088,15 @@ Header overlay
     text-align: center;
   }
 }
+.banner-wrap {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.banner-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
